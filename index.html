@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pedro Lawall Santos — Desenvolvedor fullstack &amp; creative developer</title>
+    <meta
+      name="description"
+      content="Portfólio de Pedro Lawall Santos: desenvolvedor fullstack (React, Node.js, PostgreSQL) e estudante de ADS no IFSP, construindo interfaces imersivas com Three.js e GSAP."
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pedro Lawall Santos — Desenvolvedor fullstack & creative developer" />
+    <meta property="og:description" content="React, Node.js e PostgreSQL no back-end; Three.js e GSAP no front. Projetos reais, código aberto." />
+
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+    <!-- ================= PRELOADER ================= -->
+    <div id="preloader" aria-hidden="true">
+      <span class="font-display text-sm uppercase tracking-[0.2em] text-white/40">Pedro Lawall</span>
+      <span id="preloader-count" class="text-6xl text-white/90 md:text-8xl">00</span>
+      <span id="preloader-bar"></span>
+    </div>
+
+    <!-- ================= FUNDO WEBGL ================= -->
+    <canvas id="gl-canvas"></canvas>
+    <div class="gl-vignette"></div>
+    <div class="scroll-tint scroll-tint--indigo" aria-hidden="true"></div>
+    <div class="scroll-tint scroll-tint--violet" aria-hidden="true"></div>
+    <div class="scroll-tint scroll-tint--emerald" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Cursor customizado (removido via JS em telas de toque) -->
+    <div id="cursor" aria-hidden="true">
+      <span data-cursor-label></span>
+    </div>
+
+    <!-- Anúncios para leitor de tela (ex.: "e-mail copiado") -->
+    <p id="toast" class="sr-only-live" role="status" aria-live="polite"></p>
+
+    <!-- Barra de progresso de leitura -->
+    <div id="progress-track" aria-hidden="true"><div id="progress"></div></div>
+
+    <!-- Navegação lateral por seção (desktop) -->
+    <nav class="section-dots" aria-label="Navegação por seção">
+      <a href="#hero" data-section-dot="hero" aria-label="Ir para o topo"><span class="dot" aria-hidden="true"></span><span class="dot-label">Início</span></a>
+      <a href="#work" data-section-dot="work" aria-label="Ir para projetos"><span class="dot" aria-hidden="true"></span><span class="dot-label">Projetos</span></a>
+      <a href="#about" data-section-dot="about" aria-label="Ir para sobre mim"><span class="dot" aria-hidden="true"></span><span class="dot-label">Sobre</span></a>
+      <a href="#contact" data-section-dot="contact" aria-label="Ir para contato"><span class="dot" aria-hidden="true"></span><span class="dot-label">Contato</span></a>
+    </nav>
+
+    <!-- ================= NAVEGAÇÃO ================= -->
+    <header class="site-nav">
+      <div class="section flex items-center justify-between py-5">
+        <a href="#hero" class="font-display text-lg font-semibold tracking-tight" data-magnetic>
+          <span data-site="handle">lawallz</span><span class="text-indigo-neon">.</span>
+        </a>
+        <nav aria-label="Navegação principal" class="hidden items-center gap-8 text-sm text-white/70 md:flex">
+          <a class="nav-link" href="#work">Projetos</a>
+          <a class="nav-link" href="#about">Sobre</a>
+          <a class="nav-link" href="#contact">Contato</a>
+        </nav>
+        <a
+          href="#contact"
+          class="nav-cta hidden rounded-full border border-white/15 px-5 py-2 text-sm text-white/85 transition-colors hover:border-white/40 md:inline-flex"
+          data-magnetic
+        >
+          Vamos conversar
+        </a>
+      </div>
+    </header>
+
+    <main id="main" class="content-layer">
+      <!-- ================= HERO ================= -->
+      <section id="hero" class="section relative flex min-h-svh flex-col justify-end pb-16 pt-32 md:pb-20">
+        <div id="hero-content" class="lg:grid lg:grid-cols-12 lg:items-end lg:gap-8">
+          <div class="lg:col-span-7">
+            <p data-hero-fade class="eyebrow mb-6 flex items-center gap-2">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-neon/70"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-neon"></span>
+              </span>
+              Disponível para novos projetos
+            </p>
+
+            <h1 class="font-display text-[13vw] font-semibold leading-[0.92] tracking-tighter md:text-[7.4vw] lg:text-[5.2vw]">
+              <span class="hero-line" data-hero-line><span>Do back-end</span></span>
+              <span class="hero-line" data-hero-line><span>à última animação.</span></span>
+            </h1>
+
+            <div data-hero-fade class="mt-8 flex max-w-xl flex-wrap items-baseline gap-x-2 text-lg text-white/60 md:text-xl">
+              <span>Sou</span>
+              <span class="roller font-medium text-white/90" data-rotator aria-live="off"></span>
+              <span>— construo produtos web rápidos, acessíveis e com WebGL onde faz sentido.</span>
+            </div>
+
+            <div data-hero-fade class="mt-10 flex flex-wrap items-center gap-5">
+              <a
+                href="#work"
+                class="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 font-medium text-ink transition-transform hover:scale-[1.03]"
+                data-magnetic
+              >
+                Ver projetos
+                <span class="grid h-6 w-6 place-items-center rounded-full bg-ink text-white transition-transform group-hover:translate-y-0.5" data-icon="arrowDown" data-size="14"></span>
+              </a>
+              <a href="#contact" class="text-white/60 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white">
+                ou envie um e-mail
+              </a>
+            </div>
+          </div>
+
+          <div class="ide-window mt-14 lg:col-span-5 lg:mt-0" data-hero-fade aria-hidden="true">
+            <div class="ide-window__bar">
+              <i></i><i></i><i></i>
+              <span>pedro.dev — zsh</span>
+            </div>
+            <div class="ide-code">
+              <span class="ide-line"><span class="ide-tok-com">// pedro.dev</span></span>
+              <span class="ide-line"><span class="ide-tok-key">const</span> <span class="ide-tok-plain">dev</span> <span class="ide-tok-punc">=</span> <span class="ide-tok-punc">{</span></span>
+              <span class="ide-line pl-4"><span class="ide-tok-plain">name</span><span class="ide-tok-punc">:</span> <span class="ide-tok-str">"Pedro Lawall Santos"</span><span class="ide-tok-punc">,</span></span>
+              <span class="ide-line pl-4"><span class="ide-tok-plain">role</span><span class="ide-tok-punc">:</span> <span class="ide-tok-str">"Fullstack Developer"</span><span class="ide-tok-punc">,</span></span>
+              <span class="ide-line pl-4"><span class="ide-tok-plain">stack</span><span class="ide-tok-punc">:</span> <span class="ide-tok-punc">[</span><span class="ide-tok-str">"React"</span><span class="ide-tok-punc">,</span> <span class="ide-tok-str">"Node.js"</span><span class="ide-tok-punc">,</span> <span class="ide-tok-str">"PostgreSQL"</span><span class="ide-tok-punc">]</span><span class="ide-tok-punc">,</span></span>
+              <span class="ide-line pl-4"><span class="ide-tok-plain">based</span><span class="ide-tok-punc">:</span> <span class="ide-tok-str">"São Paulo, BR"</span><span class="ide-tok-punc">,</span></span>
+              <span class="ide-line"><span class="ide-tok-punc">};</span><span class="ide-caret" data-ide-caret></span></span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#work" class="scroll-cue absolute bottom-10 right-6 hidden items-center gap-3 text-xs uppercase tracking-[0.2em] text-white/35 md:flex md:right-10 lg:right-14" data-hero-fade>
+          Role para explorar
+        </a>
+      </section>
+
+      <!-- ================= FAIXA DE TECNOLOGIAS ================= -->
+      <section class="marquee overflow-hidden py-10" aria-hidden="true">
+        <div class="marquee-track" data-marquee="left"></div>
+        <div class="marquee-track mt-2" data-marquee="right"></div>
+      </section>
+
+      <!-- ================= PROJETOS ================= -->
+      <section id="work" class="section py-28 md:py-36">
+        <div class="mb-16 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="eyebrow mb-4"><span class="text-indigo-neon">01 —</span> Projetos selecionados</p>
+            <h2 data-reveal-lines class="max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
+              Um recorte do que já construí
+            </h2>
+          </div>
+          <p class="max-w-sm text-white/50">
+            De e-commerce a APIs REST, passando por um sintetizador que roda inteiro no navegador. Todo projeto abaixo é
+            real, puxado direto do meu GitHub — com link pro código e, quando existe, pra versão no ar.
+          </p>
+        </div>
+
+        <div id="featured-project" class="mb-16 md:mb-24"></div>
+
+        <div id="projects" class="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6"></div>
+      </section>
+
+      <!-- ================= SOBRE / SKILLS ================= -->
+      <section id="about" class="section py-28 md:py-36">
+        <div class="grid gap-16 md:grid-cols-12 md:gap-8">
+          <div class="md:col-span-5">
+            <p class="eyebrow mb-4"><span class="text-indigo-neon">02 —</span> Sobre mim</p>
+            <p id="about-statement" class="font-display text-3xl font-medium leading-tight tracking-tight md:text-4xl">
+              Estudante de Análise e Desenvolvimento de Sistemas no IFSP, construindo produtos fullstack do banco de
+              dados à última animação da interface. Gosto de sair do zero: desenho o schema, escrevo a API e ainda
+              deixo tempo pra polir cada detalhe com Three.js e GSAP.
+            </p>
+
+            <dl id="stats" class="mt-14 grid grid-cols-3 gap-6 border-t border-white/10 pt-8"></dl>
+          </div>
+
+          <div class="md:col-span-3">
+            <dl id="facts" class="space-y-6"></dl>
+          </div>
+
+          <div class="md:col-span-4">
+            <p class="eyebrow mb-4">Ferramentas do dia a dia</p>
+            <ul id="skills"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTATO / RODAPÉ ================= -->
+      <footer id="contact" class="section pt-28 md:pt-36">
+        <div class="grid gap-16 md:grid-cols-12 md:gap-8">
+          <div class="md:col-span-7">
+            <p class="eyebrow mb-4"><span class="text-indigo-neon">03 —</span> Contato</p>
+            <h2 data-reveal-lines class="font-display text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              Tem um projeto em mente? Vamos conversar.
+            </h2>
+
+            <div class="mt-10 flex flex-wrap items-center gap-4">
+              <a id="mailto" href="#" class="rounded-full bg-white px-6 py-3.5 font-medium text-ink transition-transform hover:scale-[1.03]" data-magnetic>
+                <span data-site="email"></span>
+              </a>
+
+              <button
+                id="copy-email"
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3.5 text-sm text-white/80 transition-colors hover:border-white/40"
+                aria-label="Copiar endereço de e-mail"
+                data-magnetic
+              >
+                <span class="icon-swap" aria-hidden="true">
+                  <span data-icon-copy data-icon="copy" data-size="16"></span>
+                  <span data-icon-check data-icon="check" data-size="16"></span>
+                </span>
+                <span class="roll">
+                  <span data-copy-default>Copiar e-mail</span>
+                  <span data-copy-done>E-mail copiado</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <nav class="md:col-span-5" aria-label="Redes sociais">
+            <ul id="socials" class="divide-y divide-white/10 border-y border-white/10"></ul>
+          </nav>
+        </div>
+
+        <div class="mt-24 overflow-hidden md:mt-32">
+          <p id="footer-wordmark" aria-hidden="true">Vamos criar</p>
+        </div>
+
+        <div class="flex flex-col gap-4 border-t border-white/10 py-8 text-sm text-white/40 md:flex-row md:items-center md:justify-between">
+          <p>© <span id="year"></span> <span data-site="name"></span>. Todos os direitos reservados.</p>
+          <p>
+            Horário local:
+            <time id="local-time" class="text-white/60"></time>
+            (<span data-site="location"></span>)
+          </p>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
