@@ -17,10 +17,10 @@ do GitHub sempre que o navegador do visitante conseguir acessá-la.
 
 ## Como rodar
 
-Requer Node 18.19+ (recomendado Node 20 ou 22).
+Requer Node.js 20.19+ na linha 20, ou 22.12+ nas linhas mais recentes, conforme o requisito do Vite registrado em `package-lock.json`.
 
 ```bash
-npm install
+npm ci             # instala as versões registradas no package-lock.json
 npm run dev        # ambiente de desenvolvimento, http://localhost:5173
 npm run build       # build de produção -> pasta dist/
 npm run preview     # serve a build de produção localmente
