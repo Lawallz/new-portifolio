@@ -1,6 +1,6 @@
 # Portfólio de Pedro Lawall Santos — Vite + Three.js + GSAP
 
-Portfólio de desenvolvedor em dark mode, com um campo de partículas em WebGL
+Portfólio em dark mode, com um campo de partículas em WebGL
 reagindo ao mouse no fundo, animações de scroll com GSAP + ScrollTrigger,
 cards de projeto com tilt 3D e brilho neon, scroll suave via Lenis, e uma
 janela de código no hero que "digita" sozinha ao carregar a página.
